@@ -18,7 +18,6 @@ class Category {
         $this->field = $field;
     }
 
-
     public function findById($id) {
         $query = "SELECT * FROM categories WHERE id = :id";
         $stmt = Connect::getInstance()->prepare($query);

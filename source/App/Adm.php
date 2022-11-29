@@ -13,11 +13,5 @@ class Adm
     }
 
     public function register(?array $data) {
-        $json = [
-            "message" => "me"
-        ];
-        echo json_encode($json);
-        return;
     }
-
 }

@@ -25,7 +25,15 @@ class Administration
         $this->password = $password;
     }
 
-    
+    public function create() {
+        $query = "INSERT INTO admin (name, password, email) VALUES (:name, :password, :email)";
+        $stmt = Connect::getInstance()->prepare($query);
+        $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":password", $this->password);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->execute();
+        return true;
+    }
 
 
     public function getId() {

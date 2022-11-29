@@ -13,6 +13,7 @@ class Worker {
     private $phone;
     private $description;
     private $photo;
+    private $idCategory;
 
     public function __construct
     (
@@ -23,7 +24,8 @@ class Worker {
         string $email = NULL,
         string $phone = NULL,
         string $description = NULL,
-        string $photo = NULL
+        string $photo = NULL,
+        int $idCategory = NULL,
     )
     {
         $this->id = $id;
@@ -34,12 +36,33 @@ class Worker {
         $this->phone = $phone;
         $this->description = $description;
         $this->phone = $photo;
+        $this->idCategory = $idCategory;
     }
 
     public function create(){
         $query = "INSERT INTO workers (company_name, name, cpf, email, phone, description, photo) VALUES (:company_name, :name, :phone, :description, :photo)";
         $stmt = Connect::getInstance()->prepare($query);
         $stmt->bindParam(":company_name", $this->company_name);
+        $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":cpf", $this->cpf);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":phone", $this->phone);
+        $stmt->bindParam(":description", $this->description);
+        $stmt->bindParam(":photo", $this->photo);
+
+        $stmt->execute();
+
+        return true;
+    }
+
+    public function createWorkerCategory() {
+        $query = "INSERT INTO worker_categories (id_worker, id_category) VALUES (:id_worker, :id_category)";
+        $stmt = Connect::getInstance()->prepare($query);
+        $stmt->bindParam(":id_worker", $this->id);
+        $stmt->bindParam(":id_category", $this->idCategory);
+
+        $stmt->execute();
+        return true;
     }
 
     public function render() {
