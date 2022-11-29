@@ -27,7 +27,7 @@ class Category {
         if($stmt->rowCount() == 0) {
             return false;
         }else {
-            return $stmt->fetch();
+            return $stmt->fetchAll();
         }
     }
 

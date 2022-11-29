@@ -25,7 +25,7 @@ class Worker {
         string $phone = NULL,
         string $description = NULL,
         string $photo = NULL,
-        int $idCategory = NULL,
+        int $idCategory = NULL
     )
     {
         $this->id = $id;
@@ -51,8 +51,7 @@ class Worker {
         $stmt->bindParam(":photo", $this->photo);
 
         $stmt->execute();
-
-        return true;
+        return Connect::getInstance()->lastInsertId();
     }
 
     public function createWorkerCategory() {
@@ -65,8 +64,16 @@ class Worker {
         return true;
     }
 
-    public function render() {
-        echo "oi";
+    public function selectAll() {
+        $query = "SELECT * FROM morkers";
+        $stmt = Connect::getInstance()->prepare($query);
+        $stmt->execute();
+
+        if($stmt->rowCount() == 0) {
+            return false;
+        }else {
+            return $stmt->fetchAll();
+        }
     }
 
     public function getId() {

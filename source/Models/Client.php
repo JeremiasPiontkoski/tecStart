@@ -52,7 +52,6 @@ class Client
         return true;
     }
 
-
     public function getId()
     {
         return $this->id;

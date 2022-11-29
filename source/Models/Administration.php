@@ -35,7 +35,6 @@ class Administration
         return true;
     }
 
-
     public function getId() {
         return $this->id;
     }
