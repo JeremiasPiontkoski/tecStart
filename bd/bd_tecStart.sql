@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `workers` (
     `email` VARCHAR(100) NOT NULL,
     `phone` int(20) NOT NULL,
     `description` VARCHAR(100) NOT NULL,
+    `photo` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`id`)
 );
 
@@ -56,3 +57,5 @@ CREATE TABLE IF NOT EXISTS `admin` (
     `password` VARCHAR(100) NOT NULL,
     PRIMARY KEY(`id`)
 );
+
+INSERT INTO `categories` (`field`) VALUES ("Construção"),("Marcenaria"),("Elétrica"),("Jardinagem"),("Faxina"),("Informática"),("Outros");

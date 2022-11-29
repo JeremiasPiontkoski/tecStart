@@ -2,12 +2,12 @@
 define("CONF_DB_HOST", "localhost");
 define("CONF_DB_USER", "root");
 define("CONF_DB_PASS", "");
-define("CONF_DB_NAME", "bd-tosolve"); 
+define("CONF_DB_NAME", "bd_tecStart"); 
 
 // PROJECT URLs
 
-define("CONF_URL_BASE", "http://www.localhost/tec_start"); 
-define("CONF_URL_TEST", "http://www.localhost/tec_start"); 
+define("CONF_URL_BASE", "http://www.localhost/tecStart"); 
+define("CONF_URL_TEST", "http://www.localhost/tecStart"); 
 
 // VIEW
 
